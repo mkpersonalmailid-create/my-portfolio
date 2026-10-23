@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mukund Kumar Thakur — CSM & Builder</title>
+  <title>Mukund Kumar Thakur — CSM & Tech Enthusiast</title>
   <meta name="description" content="Customer Success Manager with a builder's mindset. Managing ₹3 Cr portfolios, scaling D2C brands, and building real products." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -16,22 +15,22 @@
        THEME VARIABLES
        ============================================ */
     :root[data-theme="dark"] {
-      --bg: #030305;
-      --bg-alt: #09090e;
-      --surface: rgba(18, 18, 28, 0.6);
-      --surface-hover: rgba(30, 30, 45, 0.8);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(0, 229, 255, 0.3);
+      --bg: #050508;
+      --bg-alt: #0a0a0f;
+      --surface: rgba(20, 20, 30, 0.7);
+      --surface-hover: rgba(35, 35, 50, 0.9);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-glow: rgba(0, 229, 255, 0.4);
       
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #475569;
       
       --accent: #00e5ff;
-      --accent-glow: rgba(0, 229, 255, 0.15);
+      --accent-glow: rgba(0, 229, 255, 0.2);
       --accent-2: #a855f7;
-      --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      --nav-bg: rgba(3, 3, 5, 0.7);
+      --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      --nav-bg: rgba(5, 5, 8, 0.8);
     }
 
     :root[data-theme="light"] {
@@ -39,7 +38,7 @@
       --bg-alt: #f1f5f9;
       --surface: rgba(255, 255, 255, 0.8);
       --surface-hover: rgba(255, 255, 255, 0.95);
-      --border: rgba(0, 0, 0, 0.08);
+      --border: rgba(0, 0, 0, 0.1);
       --border-glow: rgba(0, 120, 255, 0.3);
       
       --text: #0f172a;
@@ -82,13 +81,13 @@
     .bg-grid {
       position: fixed; inset: 0; z-index: -2;
       background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 40px 40px;
+      background-size: 50px 50px;
       mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
       -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
-      opacity: 0.6;
+      opacity: 0.4;
     }
     .glow-orb {
-      position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.3;
+      position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.25;
       pointer-events: none;
     }
     .orb-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--accent); }
@@ -112,12 +111,22 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    /* Scroll Animations */
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    /* Scroll Animations (Premium Fly-in + Blur) */
+    .reveal { 
+      opacity: 0; 
+      transform: translateY(60px) scale(0.95); 
+      filter: blur(8px);
+      transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+    .reveal.active { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+      filter: blur(0);
+    }
     .delay-1 { transition-delay: 0.1s; }
     .delay-2 { transition-delay: 0.2s; }
     .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
 
     /* ============================================
        NAVBAR (Glassmorphism)
@@ -130,25 +139,25 @@
       border: 1px solid var(--border); transition: all 0.4s ease;
     }
     .nav.scrolled { top: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-color: var(--border-glow); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 24px; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 24px; }
     
-    .nav-brand { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
-    .nav-brand .dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 12px var(--accent); animation: pulse 2s infinite; }
+    .nav-brand { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+    .nav-brand .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); animation: pulse 2s infinite; flex-shrink: 0; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
     
-    .nav-links { display: flex; gap: 32px; font-size: 0.9rem; font-weight: 500; }
+    .nav-links { display: flex; gap: 24px; font-size: 0.85rem; font-weight: 500; }
     .nav-links a { color: var(--text-muted); transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
     
     .theme-toggle {
       background: none; border: none; cursor: pointer; color: var(--text);
-      width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
       background: var(--surface); border: 1px solid var(--border); transition: all 0.3s;
     }
     .theme-toggle:hover { background: var(--surface-hover); transform: scale(1.05); }
-    .theme-toggle svg { width: 20px; height: 20px; }
+    .theme-toggle svg { width: 18px; height: 18px; }
     [data-theme="dark"] .sun-icon { display: block; }
     [data-theme="dark"] .moon-icon { display: none; }
     [data-theme="light"] .sun-icon { display: none; }
@@ -156,11 +165,13 @@
 
     .nav-cta {
       display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem; font-weight: 700; padding: 10px 20px; border-radius: 100px;
+      font-size: 0.75rem; font-weight: 700; padding: 8px 16px; border-radius: 100px;
       background: var(--accent); color: #000; border: 1px solid var(--accent);
       transition: all 0.3s; cursor: pointer;
     }
     .nav-cta:hover { box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-2px); }
+    .nav-cta.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+    .nav-cta.secondary:hover { border-color: var(--text); box-shadow: none; }
 
     /* ============================================
        HERO SECTION
@@ -174,19 +185,21 @@
       background: var(--accent-glow); border: 1px solid var(--border-glow);
       padding: 8px 16px; border-radius: 100px; display: inline-block; margin-bottom: 24px;
     }
-    .hero h1 { font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 1.05; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 1.05; margin-bottom: 24px; }
     .hero-sub { font-size: 1.15rem; color: var(--text-muted); max-width: 580px; margin-bottom: 40px; line-height: 1.7; }
     
     .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; font-weight: 700;
-      padding: 16px 36px; border-radius: 100px; border: none; cursor: pointer; transition: all 0.3s;
+      padding: 16px 32px; border-radius: 100px; border: none; cursor: pointer; transition: all 0.3s;
     }
     .btn-primary { background: var(--text); color: var(--bg); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
     .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
     .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .btn-resume { background: transparent; color: var(--text); border: 1px dashed var(--text-muted); }
+    .btn-resume:hover { border-color: var(--accent); color: var(--accent); border-style: solid; }
 
     /* Terminal Card */
     .hero-terminal {
@@ -244,7 +257,7 @@
     .featured-product:hover .fp-mockup { transform: perspective(1000px) rotateY(0deg); }
     .fp-mockup-header { background: rgba(255,255,255,0.05); padding: 12px; display: flex; gap: 8px; }
     .fp-mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); }
-    .fp-mockup-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: center; height: 300px; background: radial-gradient(circle at center, rgba(168, 85, 247, 0.1) 0%, transparent 70%); }
+    .fp-mockup-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: center; height: 300px; background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%); }
     .fp-timer { font-family: 'JetBrains Mono', monospace; font-size: 3rem; font-weight: 800; color: #fff; letter-spacing: 2px; }
     .fp-btn { background: #d946ef; color: white; padding: 12px 24px; border-radius: 100px; font-weight: 700; font-family: 'Inter'; font-size: 0.9rem; }
 
@@ -263,6 +276,23 @@
     .project-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .project-tags span { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; background: var(--bg-alt); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-dim); }
+
+    /* ============================================
+       EXPERIENCE TIMELINE
+       ============================================ */
+    .timeline { position: relative; max-width: 800px; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent-2), transparent); }
+    .timeline-item { position: relative; padding-left: 60px; margin-bottom: 48px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot { position: absolute; left: 11px; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); border: 4px solid var(--accent); z-index: 1; }
+    .timeline-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+    .timeline-role { font-size: 1.3rem; font-weight: 700; }
+    .timeline-company { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent); }
+    .timeline-dates { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); margin-left: auto; }
+    .timeline-desc { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+    .timeline-desc li { position: relative; padding-left: 20px; margin-bottom: 10px; }
+    .timeline-desc li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); }
+    .timeline-desc strong { color: var(--text); }
 
     /* ============================================
        CERTIFICATIONS
@@ -304,10 +334,21 @@
     .journey-sub { font-size: 0.9rem; color: var(--text-muted); }
 
     /* ============================================
-       BOOKING SECTION (GOOGLE CALENDAR)
+       CLEAR CONTACT SECTION
        ============================================ */
-    .booking-section { text-align: center; padding: 100px 0; background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .booking-section h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 24px; }
+    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 60px; }
+    .contact-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px;
+      text-align: center; transition: all 0.3s; display: flex; flex-direction: column; align-items: center;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: var(--card-shadow); }
+    .contact-icon { font-size: 2rem; margin-bottom: 16px; }
+    .contact-card h4 { font-size: 0.9rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .contact-card a, .contact-card p { font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.3s; }
+    .contact-card a:hover { color: var(--accent); }
+
+    .booking-section { text-align: center; padding: 80px 0 120px; }
+    .booking-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 24px; }
     .booking-section p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px; }
     .btn-calendar {
       display: inline-flex; align-items: center; justify-content: center; gap: 12px;
@@ -320,10 +361,7 @@
     /* ============================================
        FOOTER
        ============================================ */
-    footer { padding: 60px 0 40px; border-top: 1px solid var(--border); text-align: center; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
-    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); transition: color 0.3s; }
-    .footer-links a:hover { color: var(--accent); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
     footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); }
 
     /* ============================================
@@ -338,21 +376,24 @@
       .featured-product { grid-template-columns: 1fr; padding: 40px 24px; }
       .fp-mockup { transform: none; }
       .featured-product:hover .fp-mockup { transform: none; }
+      .nav-brand { font-size: 0.9rem; }
     }
     @media (max-width: 768px) {
       .nav { width: 100%; top: 0; border-radius: 0; border-left: none; border-right: none; border-top: none; }
       .nav.scrolled { top: 0; }
       .nav-links { display: none; }
+      .nav-actions .nav-cta.secondary { display: none; } /* Hide resume btn on mobile nav */
       .section { padding: 80px 0; }
       .btn { width: 100%; }
-      .journey-timeline::before { left: 10px; }
-      .journey-item { padding-left: 40px; }
-      .journey-dot { left: 1px; }
+      .timeline::before { left: 10px; }
+      .timeline-item { padding-left: 40px; }
+      .timeline-dot { left: 1px; }
+      .timeline-dates { margin-left: 0; width: 100%; }
     }
     @media (max-width: 480px) {
       .metrics { grid-template-columns: 1fr; }
       .cert-grid { grid-template-columns: 1fr; }
-      .footer-links { flex-direction: column; gap: 12px; }
+      .nav-brand span { display: none; } /* Hide text, keep dot on very small screens */
     }
   </style>
 </head>
@@ -368,10 +409,10 @@
     <div class="nav-inner">
       <a href="#" class="nav-brand">
         <span class="dot"></span>
-        MKT
+        <span>Mukund Kumar Thakur</span>
       </a>
       <div class="nav-links">
-        <a href="#featured">UPSC Tracker</a>
+        <a href="#featured">Product</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#certs">Certifications</a>
@@ -382,8 +423,8 @@
           <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
           <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
         </button>
-        <!-- Google Calendar Link -->
-        <a href="https://calendar.app.google/LfZE3z8YpwFLLtWi6" target="_blank" class="nav-cta">Book a Call</a>
+        <a href="https://drive.google.com/file/d/1cU41H03lr72TN9xi7SxBUXx3otjeaW54/view?usp=sharing" target="_blank" class="nav-cta secondary">Resume</a>
+        <a href="https://calendar.app.google/LfZE3z8YpwFLLtWi6" target="_blank" class="nav-cta">Book Call</a>
       </div>
     </div>
   </nav>
@@ -398,9 +439,8 @@
           Customer Success Manager with a builder's mindset. Managing ₹3 Cr portfolios, scaling 150+ D2C brands on Shopify, and building real tech products. I speak both 'Customer' and 'Engineering'.
         </p>
         <div class="hero-actions">
-          <!-- Google Calendar Link -->
           <a href="https://calendar.app.google/LfZE3z8YpwFLLtWi6" target="_blank" class="btn btn-primary">Schedule Interview</a>
-          <a href="#featured" class="btn btn-secondary">See My Product</a>
+          <a href="https://drive.google.com/file/d/1cU41H03lr72TN9xi7SxBUXx3otjeaW54/view?usp=sharing" target="_blank" class="btn btn-resume">Download Resume ⬇</a>
         </div>
       </div>
       
@@ -568,47 +608,45 @@
       <h2 class="section-title">Where I've <span>made an impact</span></h2>
     </div>
     
-    <div class="timeline" style="position: relative; padding-left: 32px;">
-      <div style="position:absolute; left:7px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, var(--accent), var(--accent-2), transparent);"></div>
-      
-      <div class="timeline-item reveal" style="position:relative; margin-bottom:48px;">
-        <div style="position:absolute; left:-32px; top:6px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 15px var(--accent-glow);"></div>
-        <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-bottom:12px;">
-          <span style="font-size:1.3rem; font-weight:700;">Customer Success Manager</span>
-          <span style="font-family:'JetBrains Mono'; font-size:0.9rem; color:var(--accent);">@ GoKwik</span>
-          <span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--text-dim); margin-left:auto;">Apr 2025 – Present</span>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-role">Customer Success Manager</span>
+          <span class="timeline-company">@ GoKwik</span>
+          <span class="timeline-dates">Apr 2025 – Present</span>
         </div>
-        <ul style="color:var(--text-muted); font-size:1rem; line-height:1.7; list-style:none;">
-          <li style="margin-bottom:10px;">▹ Owned <strong>150+ D2C brands on Shopify</strong> (₹3 Cr portfolio), managing onboarding, renewals, and escalations.</li>
-          <li style="margin-bottom:10px;">▹ Maintained <strong>98–100% quarterly retention</strong> through proactive health checks and QBRs.</li>
-          <li style="margin-bottom:10px;">▹ Coordinated multi-team SaaS implementations (<strong>Return Prime</strong>) across product, engineering, and logistics.</li>
-          <li>▹ Deep dived into <strong>Shopify checkout flows</strong> to solve conversion and drop-off challenges.</li>
+        <ul class="timeline-desc">
+          <li>Owned <strong>150+ D2C brands on Shopify</strong> (₹3 Cr portfolio), managing onboarding, renewals, and escalations.</li>
+          <li>Maintained <strong>98–100% quarterly retention</strong> through proactive health checks and QBRs.</li>
+          <li>Coordinated multi-team SaaS implementations (<strong>Return Prime</strong>) across product, engineering, and logistics.</li>
+          <li>Deep dived into <strong>Shopify checkout flows</strong> to solve conversion and drop-off challenges.</li>
         </ul>
       </div>
 
-      <div class="timeline-item reveal" style="position:relative; margin-bottom:48px;">
-        <div style="position:absolute; left:-32px; top:6px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 15px var(--accent-glow);"></div>
-        <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-bottom:12px;">
-          <span style="font-size:1.3rem; font-weight:700;">Digital Marketing Intern</span>
-          <span style="font-family:'JetBrains Mono'; font-size:0.9rem; color:var(--accent);">@ Delberto</span>
-          <span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--text-dim); margin-left:auto;">Jan 2025 – Apr 2025</span>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-role">Digital Marketing Intern</span>
+          <span class="timeline-company">@ Delberto</span>
+          <span class="timeline-dates">Jan 2025 – Apr 2025</span>
         </div>
-        <ul style="color:var(--text-muted); font-size:1rem; line-height:1.7; list-style:none;">
-          <li style="margin-bottom:10px;">▹ Onboarded <strong>100 sellers</strong> onto the marketplace platform.</li>
-          <li>▹ Acquired <strong>30 active clients in 2 months</strong> for Tailorify.</li>
+        <ul class="timeline-desc">
+          <li>Onboarded <strong>100 sellers</strong> onto the marketplace platform.</li>
+          <li>Acquired <strong>30 active clients in 2 months</strong> for Tailorify.</li>
         </ul>
       </div>
 
-      <div class="timeline-item reveal" style="position:relative;">
-        <div style="position:absolute; left:-32px; top:6px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 15px var(--accent-glow);"></div>
-        <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-bottom:12px;">
-          <span style="font-size:1.3rem; font-weight:700;">Fellowship Program</span>
-          <span style="font-family:'JetBrains Mono'; font-size:0.9rem; color:var(--accent);">@ DHL – Tulande Online</span>
-          <span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--text-dim); margin-left:auto;">Mar 2024 – Sep 2024</span>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-role">Fellowship Program</span>
+          <span class="timeline-company">@ DHL – Tulande Online</span>
+          <span class="timeline-dates">Mar 2024 – Sep 2024</span>
         </div>
-        <ul style="color:var(--text-muted); font-size:1rem; line-height:1.7; list-style:none;">
-          <li style="margin-bottom:10px;">▹ Increased daily website visits by <strong>55%</strong> (7,173 to 11,134).</li>
-          <li>▹ Drove a <strong>208% increase in new users</strong> via multi-channel campaigns.</li>
+        <ul class="timeline-desc">
+          <li>Increased daily website visits by <strong>55%</strong> (7,173 to 11,134).</li>
+          <li>Drove a <strong>208% increase in new users</strong> via multi-channel campaigns.</li>
         </ul>
       </div>
     </div>
@@ -626,7 +664,6 @@
       <div class="cert-card"><img src="https://mukundkumarthakur.odoo.com/web/image/569-481ca36e/Screenshot%202024-08-13%20131622.webp" alt="Marketing Analytics"><div class="cert-overlay"><span class="cert-name">Marketing Analytics – Infosys</span></div></div>
       <div class="cert-card"><img src="https://mukundkumarthakur.odoo.com/web/image/580-f378c8a8/Screenshot%202024-08-13%20130833.webp" alt="Leadership Skill"><div class="cert-overlay"><span class="cert-name">Leadership – IIM Ahmedabad</span></div></div>
       <div class="cert-card"><img src="https://mukundkumarthakur.odoo.com/web/image/579-e4803364/Screenshot%202024-08-13%20131531.webp" alt="Digital Marketing"><div class="cert-overlay"><span class="cert-name">Digital Marketing Advanced</span></div></div>
-      <!-- Added from Screenshot -->
       <div class="cert-card"><img src="https://mukundkumarthakur.odoo.com/web/image/428-6f30df99/Navigating%2520Customs_Mukund%2520%2520Kumar%2520Thakur_20240717_page-0001.svg" alt="Navigating Customs"><div class="cert-overlay"><span class="cert-name">Navigating Customs – DHL</span></div></div>
       <div class="cert-card"><img src="https://mukundkumarthakur.odoo.com/web/image/425-4741dd89/Screenshot%25202024-08-13%2520133549.svg" alt="GoTrade GBSN Fellowship"><div class="cert-overlay"><span class="cert-name">GoTrade GBSN Fellowship</span></div></div>
     </div>
@@ -722,16 +759,52 @@
     </div>
   </section>
 
-  <!-- BOOKING SECTION (GOOGLE CALENDAR) -->
-  <section class="booking-section" id="booking">
-    <div class="container reveal">
-      <h2>Let's build something <span style="background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">great.</span></h2>
-      <p>I'm open to roles where I can combine my CS expertise with my love for technology. Pick a slot on my calendar, and let's chat.</p>
+  <!-- CLEAR CONTACT INFO & BOOKING -->
+  <section class="section container" id="contact">
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's connect <span>directly</span></h2>
+    </div>
+
+    <div class="contact-cards reveal">
+      <!-- Email -->
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h4>Email</h4>
+        <a href="mailto:mr.mukundkumarthakur@gmail.com">mr.mukundkumarthakur@gmail.com</a>
+      </div>
       
-      <!-- Main Google Calendar Button -->
+      <!-- Phone -->
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h4>Phone</h4>
+        <a href="tel:+916203637809">+91 62036 37809</a>
+      </div>
+      
+      <!-- Location -->
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h4>Location</h4>
+        <p>Ghaziabad, India</p>
+        <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Open to relocation</span>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="contact-card">
+        <div class="contact-icon">💼</div>
+        <h4>LinkedIn</h4>
+        <a href="https://www.linkedin.com/in/mukund-kumar-thakur" target="_blank">Connect with me ↗</a>
+      </div>
+    </div>
+
+    <!-- Booking Section -->
+    <div class="booking-section reveal delay-1">
+      <h2>Schedule a <span style="background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Meeting</span></h2>
+      <p>Pick a slot on my calendar, and let's chat about how I can bring value to your team.</p>
+      
       <a href="https://calendar.app.google/LfZE3z8YpwFLLtWi6" target="_blank" class="btn-calendar">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-        Schedule a Meeting
+        Open Google Calendar
       </a>
     </div>
   </section>
@@ -739,12 +812,6 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-links">
-        <a href="mailto:mr.mukundkumarthakur@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/mukund-kumar-thakur" target="_blank">LinkedIn</a>
-        <a href="https://github.com/mkpersonalmailid-create" target="_blank">GitHub</a>
-        <a href="tel:+916203637809">+91 62036 37809</a>
-      </div>
       <p>© 2026 Mukund Kumar Thakur. Designed & Built from scratch.</p>
     </div>
   </footer>
@@ -773,7 +840,7 @@
           revealObserver.unobserve(entry.target); 
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
     revealElements.forEach(el => revealObserver.observe(el));
 
     // 3. Navbar Scroll Effect
